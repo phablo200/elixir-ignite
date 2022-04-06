@@ -2,6 +2,7 @@ defmodule ReportsGenerator do
   def build(filename) do
     "reports/#{filename}"
     |> File.stream!()
+
     #|> Enum.map(&parse_line/1)
     #|> Enum.map(fn line -> parse_line(line) end)
     |> Enum.reduce(report_acc(), fn (line, report) ->
